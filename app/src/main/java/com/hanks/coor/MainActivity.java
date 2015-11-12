@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     class MyAdapter extends FragmentPagerAdapter {
-        private String tabTitles[] = new String[]{"tab1", "tab2", "tab3"};
+        private String tabTitles[] = new String[]{"SPEED DIAL", "RECENTS", "CONTENTS"};
 
         public MyAdapter(FragmentManager fm) {
             super(fm);
