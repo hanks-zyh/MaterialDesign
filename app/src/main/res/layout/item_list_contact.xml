@@ -2,38 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="66dp"
-    android:padding="8dp"
     android:background="#ffffff"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/iv_index"
         android:layout_width="30dp"
-        android:layout_centerVertical="true"
-        android:layout_height="30dp" />
+        android:layout_height="30dp"
+        android:layout_centerVertical="true" />
 
     <ImageView
-        android:layout_marginLeft="24dp"
-        android:layout_toRightOf="@+id/iv_index"
         android:id="@+id/iv_avatar"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginRight="12dp"
         android:layout_centerVertical="true"
         android:layout_marginBottom="2dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="12dp"
+        android:layout_toRightOf="@+id/iv_index"
         android:scaleType="centerCrop"
         android:src="@drawable/icon_camera" />
 
-
     <TextView
-        android:layout_width="match_parent"
         android:id="@+id/tv_title"
+        android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_centerVertical="true"
-        android:gravity="center_vertical"
         android:layout_marginBottom="2dp"
         android:layout_toRightOf="@+id/iv_avatar"
-        android:text="this is a simple text"
+        android:gravity="center_vertical"
+        android:text="Bom and Morning"
         android:textColor="#343234"
         android:textSize="20sp" />
 
