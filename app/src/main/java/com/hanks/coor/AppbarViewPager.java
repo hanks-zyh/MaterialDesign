@@ -11,7 +11,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class AppbarViewPager extends AppCompatActivity {
 
     private List<Fragment> list = new ArrayList<>();
 
