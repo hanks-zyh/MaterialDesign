@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         list.add(SpeedFragment.newInstance());
-        list.add(SpeedFragment.newInstance());
-        list.add(SpeedFragment.newInstance());
+        list.add(RecentFragment.newInstance());
+        list.add(ContactFragment.newInstance());
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new MyAdapter(getFragmentManager()));
