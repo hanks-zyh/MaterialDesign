@@ -1,6 +1,7 @@
 package com.hanks.coor
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -15,16 +16,17 @@ import java.util.*
  * Created by hanks on 2015/11/13.
  */
 class MainActivity : AppCompatActivity() {
-    private val activityList = ArrayList<Class<*>>()
+    private val activityInfo = ArrayList<ItemInfo>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //add class
-        activityList.add(AppbarViewPager::class.java)
+        activityInfo.add(ItemInfo(AppbarViewPager::class.java, "AppbarLayout+ViewPager", "like Android system app 'dial'"))
 
         //set view
         val recyclerView = RecyclerView(this)
+        recyclerView.setBackgroundColor(Color.parseColor("#e5e5e5"))
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ActivityAdapter()
         setContentView(recyclerView)
@@ -38,13 +40,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ActivityViewHolder, position: Int) {
-            holder?.tv_title.text = activityList[position].toString()
-            holder?.tv_description.text = "description:" + activityList[position].toString()
+            holder?.tv_title.text = activityInfo[position].title
+            holder?.tv_description.text = "description:" + activityInfo[position].description
 
         }
 
         override fun getItemCount(): Int {
-            return activityList.size
+            return activityInfo.size
         }
     }
 
@@ -57,8 +59,12 @@ class MainActivity : AppCompatActivity() {
             tv_title = itemView.findViewById(R.id.tv_title) as TextView
             tv_description = itemView.findViewById(R.id.tv_description) as TextView
             itemView.setOnClickListener {
-                startActivity(Intent(itemView.context, activityList[adapterPosition]))
+                startActivity(Intent(itemView.context, activityInfo.get(adapterPosition).cls))
             }
         }
+    }
+
+    data class ItemInfo(val cls: Class<*>, val  title: String, val description: String) {
+
     }
 }
