@@ -21,6 +21,7 @@ public class AppbarViewPager extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         list.add(SpeedFragment.newInstance());
+        Class<AppCompatActivity> appCompatActivityClass = AppCompatActivity.class;
         list.add(RecentFragment.newInstance());
         list.add(ContactFragment.newInstance());
 
