@@ -17,6 +17,7 @@
         </activity>
 
         <activity android:name=".AppbarViewPager"/>
+        <activity android:name=".FabAnimateActivity"/>
     </application>
 
 </manifest>

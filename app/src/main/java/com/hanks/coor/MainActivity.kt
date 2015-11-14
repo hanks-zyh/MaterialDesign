@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         //add class
         activityInfo.add(ItemInfo(AppbarViewPager::class.java, "AppbarLayout+ViewPager", "like Android system app 'dial'"))
+        activityInfo.add(ItemInfo(FabAnimateActivity::class.java, "FabRecycler", "layout like Android  app 'Inbox'"))
 
         //set view
         val recyclerView = RecyclerView(this)
