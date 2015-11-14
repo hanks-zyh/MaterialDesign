@@ -20,8 +20,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //add class
         activityList.add(AppbarViewPager::class.java)
 
+        //set view
         val recyclerView = RecyclerView(this)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ActivityAdapter()
@@ -36,10 +38,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ActivityViewHolder, position: Int) {
-            holder?.tv_activity.text = activityList[position].toString()
-            holder?.tv_activity.setOnClickListener {
-                startActivity(Intent(holder?.tv_activity.context, activityList[position] ))
-            }
+            holder?.tv_title.text = activityList[position].toString()
+            holder?.tv_description.text = "description:" + activityList[position].toString()
+
         }
 
         override fun getItemCount(): Int {
@@ -49,10 +50,15 @@ class MainActivity : AppCompatActivity() {
 
     internal inner class ActivityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val tv_activity: TextView
+        val tv_title: TextView
+        val tv_description: TextView
 
         init {
-            tv_activity = itemView.findViewById(R.id.tv_activity) as TextView
+            tv_title = itemView.findViewById(R.id.tv_title) as TextView
+            tv_description = itemView.findViewById(R.id.tv_description) as TextView
+            itemView.setOnClickListener {
+                startActivity(Intent(itemView.context, activityList[adapterPosition]))
+            }
         }
     }
 }
