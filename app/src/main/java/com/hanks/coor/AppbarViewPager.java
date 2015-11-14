@@ -18,7 +18,7 @@ public class AppbarViewPager extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_appbar_viewpager);
 
         list.add(SpeedFragment.newInstance());
         Class<AppCompatActivity> appCompatActivityClass = AppCompatActivity.class;
