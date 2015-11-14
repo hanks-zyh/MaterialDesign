@@ -8,7 +8,6 @@
         android:id="@+id/tv_activity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#339c66"
         android:gravity="center_vertical"
         android:paddingLeft="16dp"
         android:textColor="#fff"
