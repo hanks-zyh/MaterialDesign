@@ -1,6 +1,7 @@
 package com.hanks.coor
 
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -15,6 +16,7 @@ import java.util.*
 class FabAnimateActivity : AppCompatActivity() {
 
     var contactList = ArrayList<ContactInfo>()
+    var fab: FloatingActionButton ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +32,28 @@ class FabAnimateActivity : AppCompatActivity() {
         contactList.add(ContactInfo("", "Ali Connors", "Bruch this weekend?", "I'll be in your neighborhood doing errands and all that"))
         contactList.add(ContactInfo("", "Ali Connors", "Bruch this weekend?", "I'll be in your neighborhood doing errands and all that"))
         contactList.add(ContactInfo("", "Ali Connors", "Bruch this weekend?", "I'll be in your neighborhood doing errands and all that"))
+
+
+        fab = findViewById(R.id.fab) as FloatingActionButton
         val recyclerView = findViewById(R.id.recycler_view) as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ContactAdapter()
+        recyclerView!!.addOnScrollListener(object : RecyclerScrollListener() {
+            override fun hide() {
+                hideFab()
+            }
 
+            override fun show() {
+                showFab()
+            }
+        })
+    }
+
+    fun showFab() {
+        fab?.animate()?.setDuration(300)?.translationY(0f)?.start()
+    }
+    fun hideFab() {
+        fab?.animate()?.setDuration(300)?.translationY(400f)?.start()
     }
 
     inner internal class ContactAdapter : RecyclerView.Adapter<ContactViewHolder>() {
